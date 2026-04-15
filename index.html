@@ -282,12 +282,6 @@ function toggle(h){
   const b=h.nextElementSibling,c=h.querySelector('.section-chevron'),o=b.classList.contains('open');
   b.classList.toggle('open',!o);c.classList.toggle('open',!o);
 }
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.section-header').forEach(function(h){
-    h.addEventListener('click',function(){toggle(h);});
-    h.addEventListener('touchend',function(e){e.preventDefault();toggle(h);});
-  });
-});
 function copyWifi(){
   navigator.clipboard.writeText(document.getElementById('wpass').textContent).then(()=>{
     const btn=document.querySelector('.copy-btn');btn.textContent='¡Copiado!';
