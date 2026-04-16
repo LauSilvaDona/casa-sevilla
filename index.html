@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guía de la Casa · Sevilla</title>
+<title>Seville House Guide</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
@@ -70,23 +70,22 @@ body{font-family:'Lato',sans-serif;background:#F7F0E8;color:#2C2520;max-width:76
 <body>
 
 <div class="hero">
-  <span class="hero-emoji">🏡</span>
-  <h1>Bienvenido/a a tu casa en Sevilla</h1>
-  <a href="https://maps.google.com/?q=Calle+Butrón+9+Sevilla" target="_blank" style="color:rgba(255,255,255,0.85);font-size:1rem;font-weight:300;letter-spacing:.03em;text-decoration:underline;text-underline-offset:3px;position:relative">📍 C/ Butrón, 9 · 1º · Sevilla</a>
+  <h1>Welcome to your Seville home</h1>
+  <a href="https://maps.google.com/?q=Calle+Butrón+9+Sevilla" target="_blank" style="color:rgba(255,255,255,0.85);font-size:1rem;font-weight:300;letter-spacing:.03em;text-decoration:underline;text-underline-offset:3px;position:relative">📍 C/ Butrón, 9 · 1st floor · Seville</a>
 </div>
 
 <!-- ACCESO -->
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
     <span class="section-icon">🔑</span>
-    <span class="section-title">Acceso a la casa</span>
+    <span class="section-title">Access to the house</span>
     <span class="section-chevron open">▶</span>
   </div>
   <div class="section-body open">
-    <div class="step"><div class="step-num">1</div><div class="step-text">Usa la <strong>llave de arriba</strong> para abrir la puerta de la entrada (la de abajo).</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-text">La cerradura <strong>cuesta un poco</strong> — es normal. Dale suave hacia <strong>adelante y hacia atrás</strong>, sin forzar.</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-text">Con un poco de maña y paciencia, se abre enseguida. <strong>¡Con cariño!</strong> 🙂</div></div>
-    <div class="tip-box"><strong>💡 El día de la salida:</strong> Deja las llaves en el <strong>buzón de la entrada</strong> (planta baja). ¡No las dejes dentro!</div>
+    <div class="step"><div class="step-num">1</div><div class="step-text">Use the <strong>key at the top</strong> to open the entrance door (the bottom one).</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">The lock <strong>is a bit stubborn</strong> — it's normal. Try gentle <strong>back and forth motions</strong>, don't force it.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">With a bit of patience, it opens right away. <strong>Treat it with care!</strong> 🙂</div></div>
+    <div class="tip-box"><strong>💡 On checkout day:</strong> Leave the keys in the <strong>mailbox at the entrance</strong> (ground floor). Don't leave them inside!</div>
   </div>
 </div>
 
@@ -94,17 +93,17 @@ body{font-family:'Lato',sans-serif;background:#F7F0E8;color:#2C2520;max-width:76
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
     <span class="section-icon">🏠</span>
-    <span class="section-title">Dentro de casa</span>
+    <span class="section-title">Inside the house</span>
     <span class="section-chevron">▶</span>
   </div>
   <div class="section-body">
     <div class="info-row">
       <span class="info-icon">🪟</span>
-      <div><span class="info-label">Porticones de los balcones</span>Por favor, <strong>ciérralos por la noche</strong> por motivos de seguridad.</div>
+      <div><span class="info-label">Balcony shutters</span>Please, <strong>close them at night</strong> for security reasons.</div>
     </div>
     <div class="info-row">
       <span class="info-icon">🍽️</span>
-      <div><span class="info-label">Pastillas del lavavajillas</span>Las encontrarás en un <strong>bote de cristal</strong> dentro del mueble donde está el cubo de basura.</div>
+      <div><span class="info-label">Dishwasher tablets</span>You'll find them in a <strong>glass jar</strong> inside the cabinet where the trash bin is.</div>
     </div>
   </div>
 </div>
@@ -113,27 +112,27 @@ body{font-family:'Lato',sans-serif;background:#F7F0E8;color:#2C2520;max-width:76
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
     <span class="section-icon">🌡️</span>
-    <span class="section-title">Climatización</span>
+    <span class="section-title">Climate control</span>
     <span class="section-chevron">▶</span>
   </div>
   <div class="section-body">
     <div class="season-tabs">
-      <div class="stab active-w" id="tab-w" onclick="showSeason('w')">❄️ Invierno</div>
-      <div class="stab" id="tab-s" onclick="showSeason('s')">☀️ Verano</div>
+      <div class="stab active-w" id="tab-w" onclick="showSeason('w')">❄️ Winter</div>
+      <div class="stab" id="tab-s" onclick="showSeason('s')">☀️ Summer</div>
     </div>
     <div class="season-panel active" id="panel-w">
       <div class="info-row" style="border:none;padding:0">
         <span class="info-icon">🔥</span>
-        <div>Los <strong>radiadores</strong> se controlan de forma remota por el propietario. Si la temperatura no te parece adecuada, <strong>comunícanoslo</strong> y lo ajustamos enseguida.</div>
+        <div>The <strong>radiators</strong> are controlled remotely by the owner. If the temperature isn't comfortable, <strong>let us know</strong> and we'll adjust it right away.</div>
       </div>
-      <div class="tip-box blue" style="margin-top:1rem"><strong>📱</strong> Escríbenos y lo solucionamos de inmediato.</div>
+      <div class="tip-box blue" style="margin-top:1rem"><strong>📱</strong> Message us and we'll solve it immediately.</div>
     </div>
     <div class="season-panel" id="panel-s">
       <div class="info-row" style="border:none;padding:0">
         <span class="info-icon">❄️</span>
-        <div>El <strong>mando del aire acondicionado</strong> está en el salón. Úsalo con toda la libertad que necesites.</div>
+        <div>The <strong>air conditioning remote</strong> is in the living room. Use it whenever you need to.</div>
       </div>
-      <div class="tip-box" style="margin-top:1rem"><strong>⚡ Por favor:</strong> Apaga el aire si vas a salir. El ahorro energético importa — cada grado cuenta.</div>
+      <div class="tip-box" style="margin-top:1rem"><strong>⚡ Please:</strong> Turn off the AC if you're leaving. Energy savings matter — every degree counts.</div>
     </div>
   </div>
 </div>
@@ -142,11 +141,11 @@ body{font-family:'Lato',sans-serif;background:#F7F0E8;color:#2C2520;max-width:76
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
     <span class="section-icon">☀️</span>
-    <span class="section-title">Energía solar</span>
+    <span class="section-title">Solar energy</span>
     <span class="section-chevron">▶</span>
   </div>
   <div class="section-body">
-    <div style="margin-bottom:.8rem"><span class="eco-badge">🌿 Casa sostenible</span></div>
+    <div style="margin-bottom:.8rem"><span class="eco-badge">🌿 Sustainable home</span></div>
     <div class="info-row" style="padding-top:0">
       <span class="info-icon">🧺</span>
       <div><span class="info-label">Lavadora y lavavajillas</span>Ponlos <strong>durante las horas de sol</strong> (aprox. 9h–19h). La casa tiene <strong>placas solares</strong> y así usamos energía 100% limpia y gratuita.</div>
