@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sevilla — Guía Gastronómica 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── Reset & base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:        #1c1714;
+  --crimson:    #7a1f1f;
+  --gold:       #b8953a;
+  --gold-light: #e8d9a8;
+  --gold-pale:  #fdf6e3;
+  --warm-mid:   #6b5f52;
+  --warm-light: #a89880;
+  --cream:      #faf7f2;
+  --rule:       #ddd0b0;
+  --new-bg:     #fff9ec;
+  --new-border: #c8a84a;
+  --page-w:     210mm;
+  --page-h:     297mm;
+  --margin:     14mm;
+}
+
+html { background: #e8e0d4; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--cream);
+  font-size: 11pt;
+  line-height: 1.65;
+}
+
+/* ── Page wrapper ─────────────────────────────────────────────────────────── */
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  margin: 12mm auto;
+  background: var(--cream);
+  padding: var(--margin) var(--margin) 16mm;
+  box-shadow: 0 4px 40px rgba(0,0,0,.18), 0 1px 6px rgba(0,0,0,.1);
+  position: relative;
+}
+
+/* ── Running header ───────────────────────────────────────────────────────── */
+.running-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 4px;
+  border-bottom: 0.6pt solid var(--gold);
+  margin-bottom: 10mm;
+  font-size: 9pt;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--warm-light);
+}
+.running-head .city {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 10.5pt;
+  color: var(--gold);
+  letter-spacing: .2em;
+}
+
+/* ── Cover block ──────────────────────────────────────────────────────────── */
+.cover {
+  text-align: center;
+  padding: 8mm 0 6mm;
+  position: relative;
+}
+.cover::before {
+  content: '';
+  display: block;
+  width: 1pt;
+  height: 14mm;
+  background: var(--gold);
+  margin: 0 auto 6mm;
+  opacity: .6;
+}
+.cover h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 54pt;
+  letter-spacing: .18em;
+  color: var(--crimson);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.cover .subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 15pt;
+  color: var(--gold);
+  margin-top: 3mm;
+  letter-spacing: .06em;
+}
+.cover .year {
+  font-size: 9pt;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--warm-light);
+  margin-top: 2.5mm;
+}
+.cover-rule {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+  margin: 5mm 0 5mm;
+}
+.cover-rule span { flex: 1; height: .6pt; background: var(--gold); opacity: .5; }
+.cover-rule em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 10.5pt;
+  color: var(--warm-mid);
+  white-space: nowrap;
+}
+
+/* ── Legend ───────────────────────────────────────────────────────────────── */
+.legend {
+  display: flex;
+  gap: 7mm;
+  justify-content: center;
+  margin-bottom: 8mm;
+  font-size: 9pt;
+  letter-spacing: .08em;
+  color: var(--warm-mid);
+}
+.legend span { display: flex; align-items: center; gap: 2mm; }
+.legend .dot  { width: 5px; height: 5px; border-radius: 50%; background: var(--warm-light); }
+.legend .star { color: var(--gold); font-size: 10pt; line-height: 1; }
+
+/* ── Section heading ──────────────────────────────────────────────────────── */
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 19pt;
+  color: var(--crimson);
+  letter-spacing: .06em;
+  margin: 9mm 0 3mm;
+  padding-bottom: 2.5mm;
+  border-bottom: 1pt solid var(--gold);
+  text-transform: uppercase;
+}
+.section-heading.first { margin-top: 0; }
+
+/* ── Neighborhood heading ─────────────────────────────────────────────────── */
+.hood {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 15.5pt;
+  color: var(--ink);
+  letter-spacing: .04em;
+  margin: 7mm 0 1.5mm;
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+.hood::after {
+  content: '';
+  flex: 1;
+  height: .4pt;
+  background: var(--rule);
+}
+
+/* ── Sub-label ────────────────────────────────────────────────────────────── */
+.sublabel {
+  font-size: 8.5pt;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 4mm 0 2mm;
+}
+
+/* ── Two-column layout ────────────────────────────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 7mm;
+}
+.col { break-inside: avoid-column; }
+
+/* ── Classic entry ────────────────────────────────────────────────────────── */
+.entry {
+  margin-bottom: 3.5mm;
+  padding-bottom: 3.5mm;
+  border-bottom: .3pt solid #e8e0d0;
+}
+.entry:last-child { border-bottom: none; }
+.entry-name {
+  font-weight: 500;
+  font-size: 11pt;
+  color: var(--ink);
+  margin-bottom: 1mm;
+}
+.entry-meta {
+  font-size: 9.5pt;
+  color: var(--warm-light);
+  line-height: 1.45;
+}
+.entry-meta a { color: #7a6a3e; text-decoration: none; }
+
+/* ── New entry ────────────────────────────────────────────────────────────── */
+.new-entry {
+  background: var(--new-bg);
+  border-left: 2.5pt solid var(--gold);
+  padding: 2.5mm 3mm 2.5mm 4mm;
+  margin-bottom: 3mm;
+}
+.new-badge {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1mm;
+}
+.new-entry .entry-name { font-size: 11pt; color: var(--ink); margin-bottom: .8mm; }
+.new-entry .entry-desc {
+  font-size: 9.5pt;
+  color: var(--warm-mid);
+  font-style: italic;
+  margin-bottom: 1mm;
+  line-height: 1.5;
+}
+.new-entry .entry-meta { font-size: 9pt; color: #b0a088; }
+
+/* ── Tapas line ───────────────────────────────────────────────────────────── */
+.tapas-list { margin: 1mm 0 2.5mm; }
+.t-item {
+  display: flex;
+  align-items: baseline;
+  gap: 2mm;
+  font-size: 10pt;
+  padding: 1.4mm 0;
+  border-bottom: .25pt dotted #e0d8cc;
+}
+.t-item:last-child { border-bottom: none; }
+.t-bullet { color: var(--warm-light); font-size: 10pt; flex-shrink: 0; }
+.t-bullet.new { color: var(--gold); font-size: 9.5pt; }
+.t-name { font-weight: 500; color: var(--ink); white-space: nowrap; }
+.t-addr { color: var(--warm-mid); font-size: 9.5pt; }
+.t-note { color: var(--warm-light); font-size: 9pt; font-style: italic; }
+.t-sep  { color: var(--rule); font-size: 9pt; }
+
+/* ── Otros ────────────────────────────────────────────────────────────────── */
+.otros-label {
+  font-size: 8pt;
+  letter-spacing: .1em;
+  color: var(--warm-light);
+  font-weight: 500;
+  margin: 3mm 0 1.5mm 4mm;
+  text-transform: uppercase;
+}
+.otros-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2mm 5mm;
+  margin-left: 4mm;
+  margin-bottom: 2.5mm;
+}
+.otros-item {
+  font-size: 9.5pt;
+  color: var(--warm-mid);
+}
+.otros-item::before { content: '· '; color: var(--gold-light); }
+
+/* ── Divider ──────────────────────────────────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+  margin: 7mm 0;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: .4pt; background: var(--rule);
+}
+.divider-ornament {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12pt;
+  color: var(--gold);
+  opacity: .7;
+}
+
+/* ── Flamenco / info lists ────────────────────────────────────────────────── */
+.info-list { margin: 1mm 0 2mm; }
+.info-item {
+  display: flex;
+  align-items: baseline;
+  gap: 2mm;
+  font-size: 10pt;
+  padding: 1mm 0;
+}
+.info-name { font-weight: 500; color: var(--ink); }
+.info-detail { color: var(--warm-mid); font-size: 9.5pt; }
+
+/* ── Convents / sights ────────────────────────────────────────────────────── */
+.two-list {
+  columns: 2;
+  column-gap: 7mm;
+  margin: 1mm 0 2mm;
+}
+.list-item {
+  font-size: 9.5pt;
+  color: var(--warm-mid);
+  padding: .7mm 0;
+  display: flex;
+  gap: 2mm;
+  break-inside: avoid;
+}
+.list-item::before { content: '·'; color: var(--gold-light); flex-shrink: 0; }
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  margin-top: 10mm;
+  padding-top: 4mm;
+  border-top: .4pt solid var(--rule);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13pt;
+  color: var(--gold);
+  letter-spacing: .08em;
+}
+
+/* ── Print ────────────────────────────────────────────────────────────────── */
+@media print {
+  html { background: white; }
+  .page { margin: 0; box-shadow: none; width: 210mm; min-height: 297mm; }
+  .new-entry { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Running header -->
+  <div class="running-head">
+    <span class="city">Sevilla</span>
+    <span>Guía Gastronómica &nbsp;·&nbsp; Actualizada 2026</span>
+  </div>
+
+  <!-- Cover -->
+  <div class="cover">
+    <h1>Sevilla</h1>
+    <div class="subtitle">Guía de Restaurantes &amp; Tapas</div>
+    <div class="year">Actualizada 2026</div>
+  </div>
+  <div class="cover-rule">
+    <span></span>
+    <em>· clásico &nbsp;&nbsp;&nbsp; ✦ novedad 2024–2026</em>
+    <span></span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       1. CENTRO · CASCO ANTIGUO
+  ════════════════════════════════════════════════════════════ -->
+  <div class="hood">Centro · Casco Antiguo</div>
+
+  <div class="sublabel">Restaurantes</div>
+  <div class="two-col">
+    <div>
+      <div class="entry">
+        <div class="entry-name">Egaña-Oriza</div>
+        <div class="entry-meta">c/ San Fernando, 1 &nbsp;·&nbsp; +34 954 22 72 54<br><a href="#">restauranteoriza.com</a></div>
+      </div>
+      <div class="entry">
+        <div class="entry-name">La Isla</div>
+        <div class="entry-meta">c/ Arfe, 25 &nbsp;·&nbsp; +34 954 21 53 76</div>
+      </div>
+      <div class="entry">
+        <div class="entry-name">Manolo León</div>
+        <div class="entry-meta">c/ Guadalquivir, 8 &nbsp;·&nbsp; +34 954 37 37 35</div>
+      </div>
+      <div class="entry">
+        <div class="entry-name">El Gallinero de Sandra</div>
+        <div class="entry-meta">c/ Amor de Dios, 31 &nbsp;·&nbsp; +34 954 909 931</div>
+      </div>
+    </div>
+    <div>
+      <div class="entry">
+        <div class="entry-name">Sabina</div>
+        <div class="entry-meta">c/ Dos de Mayo, 4 &nbsp;·&nbsp; +34 954 56 25 47</div>
+      </div>
+      <div class="entry">
+        <div class="entry-name">Casa Robles</div>
+        <div class="entry-meta">c/ Placentines, 2 &nbsp;·&nbsp; +34 954 21 31 50<br><a href="#">casa-robles.com</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="new-entry">
+    <div class="new-badge">✦ nuevo</div>
+    <div class="entry-name">Yo, Cocina Contemporánea</div>
+    <div class="entry-desc">Menú degustación de autor. Cocina creativa, chef Stefano. Reserva imprescindible.</div>
+    <div class="entry-meta">c/ Bailén, 34 &nbsp;·&nbsp; +34 604 95 08 77</div>
+  </div>
+  <div class="new-entry">
+    <div class="new-badge">✦ nuevo</div>
+    <div class="entry-name">Leartá</div>
+    <div class="entry-desc">10 comensales, menú de temporada. Reconocimiento Michelin. Miércoles a domingo.</div>
+    <div class="entry-meta">c/ Padre Tarín, 6 &nbsp;·&nbsp; +34 614 34 23 84</div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Acento – Social Eatery</div>
+        <div class="entry-desc">Mediterráneo contemporáneo. Tartar de ternera y pulpo. Cierra lun y dom.</div>
+        <div class="entry-meta">c/ Harinas, 20 &nbsp;·&nbsp; +34 955 40 92 50</div>
+      </div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">conTenedor</div>
+        <div class="entry-desc">Cocina de mercado creativa, ambiente artístico. Sin tapas, platos de autor.</div>
+        <div class="entry-meta">c/ San Luis, 50 &nbsp;·&nbsp; +34 954 91 63 33</div>
+      </div>
+    </div>
+    <div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Beirutina</div>
+        <div class="entry-desc">Cocina levantina — shawarma, hummus, knafeh. Desayuno, comida y cena vie-sáb.</div>
+        <div class="entry-meta">c/ Fernán Caballero, 6 &nbsp;·&nbsp; +34 608 52 76 55</div>
+      </div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Mokambo Plaza Nueva</div>
+        <div class="entry-desc">Mejor brunch del centro. Eggs benedict, empanadas, smoothies. Solo mañanas.</div>
+        <div class="entry-meta">c/ Joaquín Guichot, 8 &nbsp;·&nbsp; +34 955 46 15 40</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sublabel">Tapas</div>
+  <div class="tapas-list">
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">El Rinconcillo</span><span class="t-sep">—</span><span class="t-addr">c/ Gerona, 40</span><span class="t-sep">·</span><span class="t-note">El bar más antiguo de Sevilla</span></div>
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Perro Viejo</span><span class="t-sep">—</span><span class="t-addr">c/ Arguijo, 3</span></div>
+    <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">El Pintón</span><span class="t-sep">—</span><span class="t-addr">c/ Francos, 42</span><span class="t-sep">·</span><span class="t-note">Dos patios andaluces, tapas creativas y vinos naturales</span></div>
+    <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">La Bartola</span><span class="t-sep">—</span><span class="t-addr">c/ San José, 24</span><span class="t-sep">·</span><span class="t-note">Siempre con cola. Carrillada ibérica y pulpo imprescindibles</span></div>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       2. SAN LORENZO · ALAMEDA
+  ════════════════════════════════════════════════════════════ -->
+  <div class="hood">San Lorenzo · Alameda de Hércules</div>
+
+  <div class="sublabel">Restaurantes</div>
+  <div class="two-col">
+    <div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">La Cochera del Abuelo</div>
+        <div class="entry-desc">Elegante y acogedor. Cocina de autor con producto excepcional. Solo noches mar-sáb.</div>
+        <div class="entry-meta">c/ Álvaro de Bazán, 2 &nbsp;·&nbsp; +34 664 44 06 36</div>
+      </div>
+    </div>
+    <div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Marabunda</div>
+        <div class="entry-desc">Fusión y creatividad. Tartar de atún, arroces. Siempre lleno, reserva.</div>
+        <div class="entry-meta">c/ Jesús del Gran Poder, 31 &nbsp;·&nbsp; +34 623 34 88 14</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sublabel">Tapas</div>
+  <div class="tapas-list">
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Casa Ovidio</span><span class="t-sep">—</span><span class="t-addr">c/ Hernán Cortés, 2</span></div>
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Eslava</span><span class="t-sep">—</span><span class="t-addr">c/ Eslava, 3</span><span class="t-sep">·</span><span class="t-note">Uno de los grandes clásicos de la ciudad</span></div>
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">La Azotea</span><span class="t-sep">—</span><span class="t-addr">c/ Jesús del Gran Poder, 31</span></div>
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Abacería de San Lorenzo</span><span class="t-sep">—</span><span class="t-addr">c/ Teodosio, 53</span></div>
+    <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">Suspiro. Tapas &amp; Vinos</span><span class="t-sep">—</span><span class="t-addr">Alameda de Hércules, 12</span><span class="t-sep">·</span><span class="t-note">Ambiente genuino, buena carta de vinos</span></div>
+    <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">El Disparate</span><span class="t-sep">—</span><span class="t-addr">Alameda de Hércules, 11</span><span class="t-sep">·</span><span class="t-note">Carpaccio de alcachofa y croquetas de rabo de toro</span></div>
+  </div>
+  <div class="otros-label">Otros por la zona</div>
+  <div class="otros-list">
+    <span class="otros-item">Antojo — c/ Calatrava, 44</span>
+    <span class="otros-item">Casa Rafita — c/ Marqués de la Mina</span>
+    <span class="otros-item">El Abuelo — c/ Álvaro de Bazán, 2</span>
+    <span class="otros-item">El Sardinero — plaza de San Lorenzo, 15</span>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       3. CATEDRAL
+  ════════════════════════════════════════════════════════════ -->
+  <div class="hood">Alrededor de la Catedral</div>
+  <div class="sublabel">Tapas</div>
+  <div class="two-col">
+    <div class="tapas-list">
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Las Teresas</span><span class="t-sep">—</span><span class="t-addr">c/ Santa Teresa, 2</span></div>
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Casa Román</span><span class="t-sep">—</span><span class="t-addr">pl. de los Venerables, 1</span></div>
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Hostería del Laurel</span><span class="t-sep">—</span><span class="t-addr">pl. de los Venerables, 5</span></div>
+    </div>
+    <div class="tapas-list">
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Bar Estrella</span><span class="t-sep">—</span><span class="t-addr">c/ de la Estrella, 3</span></div>
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Casa Robles</span><span class="t-sep">—</span><span class="t-addr">c/ Placentines, 2</span></div>
+      <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">Beirutina</span><span class="t-sep">—</span><span class="t-addr">c/ Fernán Caballero, 6</span><span class="t-sep">·</span><span class="t-note">Hummus, batata harra, falafel</span></div>
+    </div>
+  </div>
+  <div class="otros-label">Otros por la zona</div>
+  <div class="otros-list">
+    <span class="otros-item">La Fresquita — c/ Mateos Gago, 29</span>
+    <span class="otros-item">Doña Carmela — c/ Santa María la Blanca, 6</span>
+    <span class="otros-item">Bar Modesto — c/ Cano y Cueto, 5</span>
+    <span class="otros-item">Vinoteca San Telmo — Paseo de Catalina de Ribera, 4</span>
+    <span class="otros-item">Casablanca — c/ Adolfo Rodríguez Jurado, 12</span>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       4. AYUNTAMIENTO · PLAZA NUEVA
+  ════════════════════════════════════════════════════════════ -->
+  <div class="hood">Alrededor del Ayuntamiento · Plaza Nueva</div>
+  <div class="sublabel">Tapas</div>
+  <div class="two-col">
+    <div class="tapas-list">
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Ovejas Negras</span><span class="t-sep">—</span><span class="t-addr">c/ Hernando Colón, 8</span></div>
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Zelai</span><span class="t-sep">—</span><span class="t-addr">c/ Albareda, 22</span></div>
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Barbiana</span><span class="t-sep">—</span><span class="t-addr">c/ Albareda, 11</span></div>
+    </div>
+    <div class="tapas-list">
+      <div class="t-item"><span class="t-bullet">·</span><span class="t-name">La Flor de Toranzo</span><span class="t-sep">—</span><span class="t-addr">c/ Jimios, 1</span></div>
+      <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">El Pintón</span><span class="t-sep">—</span><span class="t-addr">c/ Francos, 42</span><span class="t-sep">·</span><span class="t-note">Dos patios, tapas creativas</span></div>
+    </div>
+  </div>
+  <div class="otros-label">Otros por la zona</div>
+  <div class="otros-list">
+    <span class="otros-item">Bar Becerra — c/ Gamazo, 2</span>
+    <span class="otros-item">Casa Moreno — c/ Gamazo, 7</span>
+    <span class="otros-item">Taberna El Diez — c/ Albareda, 10</span>
+    <span class="otros-item">Casa Cuesta — c/ Zaragoza, 50</span>
+    <span class="otros-item">El Seis — Plaza Nueva</span>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       5. MAESTRANZA
+  ════════════════════════════════════════════════════════════ -->
+  <div class="hood">Alrededor de la Maestranza</div>
+
+  <div class="sublabel">Restaurantes</div>
+  <div class="two-col">
+    <div>
+      <div class="entry">
+        <div class="entry-name">Puerta Grande</div>
+        <div class="entry-meta">c/ Antonia Díaz, 3 &nbsp;·&nbsp; +34 954 21 68 96</div>
+      </div>
+    </div>
+    <div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Doña Enriqueta</div>
+        <div class="entry-desc">Cocina sevillana tradicional junto a la Maestranza. Gambas al ajillo y rabo de toro.</div>
+        <div class="entry-meta">c/ Antonia Díaz, 33 &nbsp;·&nbsp; +34 614 94 42 24</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sublabel">Tapas</div>
+  <div class="tapas-list">
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Casablanca</span><span class="t-sep">—</span><span class="t-addr">c/ Adolfo Rodríguez Jurado, 12</span></div>
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">El Infantas</span><span class="t-sep">—</span><span class="t-addr">c/ Arfe, 32</span></div>
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Bodega Antonio Romero</span><span class="t-sep">—</span><span class="t-addr">c/ Antonia Díaz, 19</span></div>
+  </div>
+  <div class="otros-label">Otros por la zona</div>
+  <div class="otros-list">
+    <span class="otros-item">Casa Pepe Hillo — c/ Adriano, 24</span>
+    <span class="otros-item">Mesón Cinco Jotas — c/ Castelar, 1</span>
+    <span class="otros-item">Casa Morales — c/ García de Vinuesa, 11</span>
+    <span class="otros-item">La Pizarra — paseo Colón, 6</span>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       6. TRIANA
+  ════════════════════════════════════════════════════════════ -->
+  <div class="hood">Triana</div>
+
+  <div class="sublabel">Restaurantes</div>
+  <div class="entry">
+    <div class="entry-name">Abades Triana</div>
+    <div class="entry-meta">c/ Betis, 69 &nbsp;·&nbsp; +34 954 28 64 59 &nbsp;·&nbsp; <a href="#">abadestriana.com</a></div>
+  </div>
+
+  <div class="new-entry">
+    <div class="new-badge">✦ nuevo</div>
+    <div class="entry-name">MaríaTrifulca</div>
+    <div class="entry-desc">Vistas únicas al Guadalquivir desde la torre del puente. Terraza en azotea. Reservar con antelación.</div>
+    <div class="entry-meta">Pl. del Altozano, 1 (Puente de Triana) &nbsp;·&nbsp; +34 954 33 03 47</div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Gascona</div>
+        <div class="entry-desc">Paellas y pulpo como estrellas. Cocina asturiana-andaluza.</div>
+        <div class="entry-meta">c/ Castilla, 22 &nbsp;·&nbsp; +34 636 47 45 63</div>
+      </div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">El Sella</div>
+        <div class="entry-desc">Cocina asturiana. Cochinillo, chorizo a la sidra y arroces.</div>
+        <div class="entry-meta">c/ Pureza, 4 &nbsp;·&nbsp; +34 636 47 45 61</div>
+      </div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Boca Boca</div>
+        <div class="entry-desc">Cocina creativa. Tacos gaditanos, tartar y risotto. Mié-dom.</div>
+        <div class="entry-meta">Rda. de Triana, 11 &nbsp;·&nbsp; +34 685 17 49 68</div>
+      </div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Terraza De La O</div>
+        <div class="entry-desc">Junto al río. Cocina andaluza contemporánea. Paella de conejo.</div>
+        <div class="entry-meta">Paseo de Ntra. Sra. de la O, 29 &nbsp;·&nbsp; +34 954 33 90 00</div>
+      </div>
+    </div>
+    <div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Malasaña Triana</div>
+        <div class="entry-desc">Fusión con mucho sabor. El parmentier ibérico, el más celebrado del barrio.</div>
+        <div class="entry-meta">c/ Trabajo, 4 &nbsp;·&nbsp; +34 955 44 28 91</div>
+      </div>
+      <div class="new-entry">
+        <div class="new-badge">✦ nuevo</div>
+        <div class="entry-name">Abacería El Mercader de Triana</div>
+        <div class="entry-desc">Costilla de buey y boquerones imprescindibles. Solo mar-jue, reserva.</div>
+        <div class="entry-meta">c/ Antillano Campos, 15 &nbsp;·&nbsp; +34 675 43 55 43</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sublabel">Tapas</div>
+  <div class="tapas-list">
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Casa Anselma</span><span class="t-sep">—</span><span class="t-addr">c/ Pagés del Corro, 90</span><span class="t-sep">·</span><span class="t-note">Sin reservas, llegar pronto</span></div>
+    <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">Bar Típico</span><span class="t-sep">—</span><span class="t-addr">c/ Pagés del Corro, 86</span><span class="t-sep">·</span><span class="t-note">Lleno de locales. Pluma ibérica y arroz negro</span></div>
+    <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">Bar Triana</span><span class="t-sep">—</span><span class="t-addr">c/ Castilla, 73</span><span class="t-sep">·</span><span class="t-note">Berenjenas con miel y croquetas memorables. Cierra lunes</span></div>
+  </div>
+
+  <div class="sublabel">Flamenco en Triana</div>
+  <div class="tapas-list">
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Sala Tronío</span><span class="t-sep">—</span><span class="t-addr">c/ Pureza, 13</span></div>
+    <div class="t-item"><span class="t-bullet">·</span><span class="t-name">Sala Flamenco</span><span class="t-sep">—</span><span class="t-addr">c/ Castilla, 137</span></div>
+    <div class="t-item"><span class="t-bullet new">✦</span><span class="t-name">Taberna La Quedá de Triana</span><span class="t-sep">—</span><span class="t-addr">c/ Duarte, 3</span><span class="t-sep">·</span><span class="t-note">Flamenco en vivo, ambiente muy auténtico</span></div>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       7. EL PORVENIR
+  ════════════════════════════════════════════════════════════ -->
+  <div class="hood">El Porvenir · Parque de María Luisa</div>
+  <div class="sublabel">Restaurantes</div>
+  <div class="two-col">
+    <div>
+      <div class="entry">
+        <div class="entry-name">Salvador Rojo</div>
+        <div class="entry-meta">Avda. Manuel Siurot, 33 &nbsp;·&nbsp; +34 954 22 97 25</div>
+      </div>
+    </div>
+    <div>
+      <div class="entry">
+        <div class="entry-name">El Espigón</div>
+        <div class="entry-meta">c/ Bogotá, 1 &nbsp;·&nbsp; +34 954 62 68 51</div>
+      </div>
+      <div class="entry">
+        <div class="entry-name">La Parra</div>
+        <div class="entry-meta">c/ Gustavo Gallardo, 14 &nbsp;·&nbsp; +34 954 61 29 59</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       8. NERVIÓN
+  ════════════════════════════════════════════════════════════ -->
+  <div class="hood">Nervión · Zona Este</div>
+  <div class="new-entry" style="max-width:50%">
+    <div class="new-badge">✦ nuevo</div>
+    <div class="entry-name">La Tizná</div>
+    <div class="entry-desc">Cocina eco-consciente y de km 0. Gazpacho con frutas y pollo andaluz memorables. Solo mediodías.</div>
+    <div class="entry-meta">c/ Camilo José Cela, 1 &nbsp;·&nbsp; +34 955 80 92 58</div>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FLAMENCO (resumen)
+  ════════════════════════════════════════════════════════════ -->
+  <div class="section-heading">Flamenco</div>
+  <div class="two-col">
+    <div class="info-list">
+      <div class="info-item"><span class="t-bullet">·</span><span class="info-name">La Carbonería</span><span class="info-detail">&nbsp;— c/ Levíes, 18</span></div>
+      <div class="info-item"><span class="t-bullet">·</span><span class="info-name">Casa Anselma</span><span class="info-detail">&nbsp;— c/ Pagés del Corro, 90</span></div>
+    </div>
+    <div class="info-list">
+      <div class="info-item"><span class="t-bullet">·</span><span class="info-name">Sala Tronío</span><span class="info-detail">&nbsp;— c/ Pureza, 13</span></div>
+      <div class="info-item"><span class="t-bullet new">✦</span><span class="info-name">La Quedá de Triana</span><span class="info-detail">&nbsp;— c/ Duarte, 3</span></div>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-ornament">✦</span></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MERCADOS · DULCES · QUÉ VER
+  ════════════════════════════════════════════════════════════ -->
+  <div class="two-col" style="gap:0 10mm">
+    <div>
+      <div class="section-heading">Mercados</div>
+      <div class="info-list">
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-name">Mercadillo del Jueves</span><span class="info-detail">&nbsp;— c/ Feria, jueves</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-name">Mercado de Arte</span><span class="info-detail">&nbsp;— pl. del Museo, domingos</span></div>
+      </div>
+
+      <div class="section-heading">Dulces de convento</div>
+      <div class="info-list">
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Convento San Leandro — Pl. San Idelfonso</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Convento de Santa Ana — c/ Santa Ana, 34</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Convento de Santa Inés — c/ Doña Mª Coronel, 5</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Convento de San Clemente — c/ Santa Clara, 91</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Convento de Madre de Dios — c/ San José, 4</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Convento Santa Paula — c/ Santa Paula, 11</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-heading">Qué ver</div>
+      <div class="info-list">
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Reales Alcázares</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">La Catedral y La Giralda</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Real Maestranza (plaza de toros)</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Museo de Bellas Artes</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Casa Pilatos</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Iglesia del Salvador</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Hospital de la Santa Caridad</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Hospital de los Venerables</span></div>
+        <div class="info-item"><span class="t-bullet">·</span><span class="info-detail">Real Fábrica de Tabacos (Universidad)</span></div>
+      </div>
+
+      <div class="section-heading">Paseos</div>
+      <div class="info-item" style="font-size:10pt;color:var(--warm-mid);font-style:italic;line-height:1.6">
+        Barrio Santa Cruz · Judería · Jardines de Murillo · Calle Betis · Parque de María Luisa · Plaza de España
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">¡Buen provecho! &nbsp;✦</div>
+
+</div><!-- /page -->
+</body>
+</html>
